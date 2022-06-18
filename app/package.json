@@ -1,0 +1,29 @@
+{
+    "name": "rise-cli-foundation",
+    "version": "0.0.4",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+        "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+        "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage=true"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "archiver": "^5.3.1",
+        "commander": "^9.3.0",
+        "fs-extra": "^10.1.0"
+    },
+    "devDependencies": {
+        "jest": "^28.1.1"
+    },
+    "jest": {
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "./src/framework/io/realTerminal.js"
+        ]
+    }
+}
