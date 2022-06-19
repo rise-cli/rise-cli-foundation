@@ -16,18 +16,19 @@ module.exports = {
         {
             name: 'Prod',
             actions: [
-                /**
-                 * The reason this is comment out right now is because
-                 * code pipeline has an issue with running tests that
-                 * write to the filesystem
-                 */
-
                 {
                     type: 'BUILD',
                     name: 'Test',
                     script: '/test.yml',
                     inputArtifact: 'sourceZip',
                     outputArtifact: 'testZip'
+                },
+                {
+                    type: 'BUILD',
+                    name: 'DeployDocumentation',
+                    script: '/docs.yml',
+                    inputArtifact: 'sourceZip',
+                    outputArtifact: 'docZip'
                 },
                 {
                     type: 'BUILD',

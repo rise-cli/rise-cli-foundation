@@ -3,4 +3,4 @@
 -   ✅ App
 -   ✅ Tests
 -   ✅ Pipeline
--   🔲 Documentation
+-   ✅ Documentation
