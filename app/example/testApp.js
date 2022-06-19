@@ -1,7 +1,7 @@
-import makeCli from '../src/index.js'
-import { deploy } from './commands/deploy.js'
+const makeCli = require('../src/index.js')
+const { deploy } = require('./commands/deploy.js')
 
-export default (terminalState, filesystemState) => {
+module.exports = (terminalState, filesystemState) => {
     /**
      * Setup CLI
      */

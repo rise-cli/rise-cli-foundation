@@ -1,6 +1,5 @@
-import makeIo from '../../index.js'
-
-const io = makeIo({
+const makeIO = require('../../index.js')
+const io = makeIO({
     type: 'real'
 })
 

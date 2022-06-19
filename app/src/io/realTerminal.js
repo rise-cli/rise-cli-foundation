@@ -1,5 +1,4 @@
-import { program } from 'commander'
-
+const { program } = require('commander')
 const input = {
     makeCommand: (config) => {
         if (!config.command) {
@@ -47,7 +46,7 @@ const output = {
     }
 }
 
-export default {
+module.exports = {
     ...input,
     ...output
 }

@@ -1,3 +1,2 @@
-import io from './io/index.js'
-
-export default io
+const io = require('./io/index.js')
+module.exports = io

@@ -1,3 +1,3 @@
-export const app = {
+exports.app = {
     name: 'example-app'
 }

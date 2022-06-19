@@ -1,7 +1,7 @@
-import fsextra from 'fs-extra'
-import { zipFolder } from './realZip.js'
+const fsextra = require('fs-extra')
+const { zipFolder } = require('./realZip.js')
 
-export default (projectRoot) => ({
+module.exports = (projectRoot) => ({
     /**
      * Folders
      */
@@ -51,22 +51,7 @@ export default (projectRoot) => ({
     },
 
     getJsFile: async (path) => {
-        try {
-            const x = await import(projectRoot + path)
-            return x.default
-        } catch (e) {
-            if (
-                e.message.includes(
-                    'Provided module is not an instance of Module'
-                )
-            ) {
-                throw new Error(
-                    projectRoot + path + ' must have a defualt export'
-                )
-            }
-
-            throw new Error(e)
-        }
+        return require(projectRoot + path)
     },
 
     writeFile: (props) => {

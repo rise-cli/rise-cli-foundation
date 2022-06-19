@@ -40,7 +40,7 @@ const input = {
     }
 }
 
-export default (state) => ({
+module.exports = (state) => ({
     ...input,
     printInfoMessage: (m) => {
         state.push(m)

@@ -1,9 +1,9 @@
-import realTerminal from './realTerminal.js'
-import realFilesystem from './realFilesystem.js'
-import mockTerminal from './mockTerminal.js'
-import mockFilesystem from './mockFilesystem.js'
+const realTerminal = require('./realTerminal.js')
+const realFilesystem = require('./realFilesystem.js')
+const mockTerminal = require('./mockTerminal.js')
+const mockFilesystem = require('./mockFilesystem.js')
 
-export default (config) => {
+module.exports = (config) => {
     if (config.type === 'real') {
         return {
             terminal: realTerminal,

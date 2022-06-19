@@ -1,4 +1,4 @@
-import makeIO from '../index.js'
+const makeIO = require('../index.js')
 
 test('realFilesystem can read, create, and delete directories', async () => {
     const filesystemState = {

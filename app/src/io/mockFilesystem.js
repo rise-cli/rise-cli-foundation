@@ -1,4 +1,4 @@
-export default (state) => ({
+module.exports = (state) => ({
     getDirectories: (source) => {
         if (!source) {
             throw new Error('getDirections requires a path')

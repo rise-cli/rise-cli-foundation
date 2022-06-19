@@ -1,4 +1,4 @@
-import makeIO from '../index.js'
+const makeIO = require('../index.js')
 
 test('mockTerminal.printInfoMessage will log to the console', () => {
     let state = []

@@ -1,8 +1,8 @@
-import file_system from 'fs'
-import archiver from 'archiver'
+const file_system = require('fs')
+const archiver = require('archiver')
 const COMPRESSION_LEVEL = 9
 
-export function zipFolder({ source, target, name }) {
+exports.zipFolder = function ({ source, target, name }) {
     if (!file_system.existsSync(target)) {
         file_system.mkdirSync(target)
     }

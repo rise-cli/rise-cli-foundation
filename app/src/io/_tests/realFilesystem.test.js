@@ -10,13 +10,8 @@ getProjectPath
 copyFile
 
 */
-import { jest } from '@jest/globals'
-import makeIO from '../index.js'
-import path from 'path'
-import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const makeIO = require('../index.js')
 
 test('realFilesystem can read, create, and delete directories', async () => {
     const io = makeIO({
@@ -90,7 +85,7 @@ test('realFilesystem can write a file', async () => {
 
     io.filesystem.writeFile({
         path: '/fileA.js',
-        content: 'export default {name: "made-app"}'
+        content: 'module.exports = {name: "made-app"}'
     })
 
     const app = await io.filesystem.getJsFile('/fileA.js')
