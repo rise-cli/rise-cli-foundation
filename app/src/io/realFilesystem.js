@@ -1,4 +1,5 @@
 const fsextra = require('fs-extra')
+const fs = require('fs')
 const { zipFolder } = require('./realZip.js')
 
 module.exports = (projectRoot) => ({
@@ -67,5 +68,9 @@ module.exports = (projectRoot) => ({
             projectRoot + input.source,
             projectRoot + input.target
         )
+    },
+
+    getTextContent: async (path) => {
+        return fs.readFileSync(projectRoot + path, 'utf8')
     }
 })

@@ -76,6 +76,16 @@ module.exports = (state) => ({
         return folder
     },
 
+    getTextContent: (path) => {
+        const pathKeys = path.split('/').filter((x) => x.length > 0)
+        let folder = state
+        pathKeys.forEach((key) => {
+            folder = folder[key]
+        })
+
+        return folder
+    },
+
     getJsFile: async (path) => {
         const pathKeys = path.split('/').filter((x) => x.length > 0)
         let folder = state

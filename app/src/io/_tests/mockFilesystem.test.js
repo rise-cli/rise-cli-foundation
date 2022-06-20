@@ -202,3 +202,27 @@ test('realFilesystem can make a zip a folder', async () => {
     expect(x).toBeTruthy()
     io.filesystem.removeFile('/target/lambdaCode.zip')
 })
+
+test('realFilesystem can get text content of file', async () => {
+    const filesystemState = {
+        modules: {
+            sectionA: {
+                'fileA.js': "export default { name: 'copy-app'}"
+            },
+            sectionB: {
+                'fileA.js': "export default { name: 'copy-app'}"
+            }
+        },
+        target: {}
+    }
+
+    const io = makeIO({
+        type: 'mock',
+        terminalState: [],
+        filesystemState
+    })
+    const text = await io.filesystem.getTextContent(
+        '/modules/sectionA/fileA.js'
+    )
+    expect(text).toBe("export default { name: 'copy-app'}")
+})
