@@ -94,7 +94,7 @@ module.exports = (state) => ({
         })
 
         let module = null
-        const code = folder.replace('export default ', 'module = ')
+        const code = folder.replace('module.exports = ', 'module = ')
         eval(code)
         return module
     },

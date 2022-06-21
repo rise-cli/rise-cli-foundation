@@ -12,7 +12,7 @@ const input = {
         app[config.command] = config.action
     },
 
-    execute: (terminalCommand) => {
+    execute: async (terminalCommand) => {
         const command = terminalCommand.split(' ')[0]
         const terminalCommandFlags = terminalCommand
             .split(' ')
@@ -36,7 +36,7 @@ const input = {
             }
         })
 
-        app[command](flagObject)
+        await app[command](flagObject)
     }
 }
 

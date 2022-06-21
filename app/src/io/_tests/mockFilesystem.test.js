@@ -4,10 +4,10 @@ test('realFilesystem can read, create, and delete directories', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             }
         }
     }
@@ -40,10 +40,10 @@ test('realFilesystem will throw error if no path is given', () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             }
         }
     }
@@ -62,10 +62,10 @@ test('realFilesystem can copy a directory with files in it', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             }
         }
     }
@@ -86,22 +86,22 @@ test('realFilesystem can copy a directory with files in it', async () => {
     const fileA = await io.filesystem.getFile(
         '/targetModules/sectionA/fileA.js'
     )
-    expect(fileA).toBe("export default { name: 'example-app'}")
+    expect(fileA).toBe("module.exports =  { name: 'example-app'}")
 
     const fileB = await io.filesystem.getFile(
         '/targetModules/sectionB/fileA.js'
     )
-    expect(fileB).toBe("export default { name: 'example-app'}")
+    expect(fileB).toBe("module.exports =  { name: 'example-app'}")
 })
 
 test('realFilesystem can get a js file', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             }
         }
     }
@@ -120,10 +120,10 @@ test('realFilesystem can write a file', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'example-app'}"
+                'fileA.js': "module.exports =  { name: 'example-app'}"
             }
         }
     }
@@ -136,7 +136,7 @@ test('realFilesystem can write a file', async () => {
 
     io.filesystem.writeFile({
         path: '/fileA.js',
-        content: 'export default {name: "made-app"}'
+        content: 'module.exports =  {name: "made-app"}'
     })
 
     const app = await io.filesystem.getJsFile('/fileA.js')
@@ -150,10 +150,10 @@ test('realFilesystem can copy files', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             }
         }
     }
@@ -178,10 +178,10 @@ test('realFilesystem can make a zip a folder', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             }
         },
         target: {}
@@ -207,10 +207,10 @@ test('realFilesystem can get text content of file', async () => {
     const filesystemState = {
         modules: {
             sectionA: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             },
             sectionB: {
-                'fileA.js': "export default { name: 'copy-app'}"
+                'fileA.js': "module.exports =  { name: 'copy-app'}"
             }
         },
         target: {}
@@ -224,5 +224,5 @@ test('realFilesystem can get text content of file', async () => {
     const text = await io.filesystem.getTextContent(
         '/modules/sectionA/fileA.js'
     )
-    expect(text).toBe("export default { name: 'copy-app'}")
+    expect(text).toBe("module.exports =  { name: 'copy-app'}")
 })
