@@ -1,11 +1,10 @@
-const path = require('path')
-const { spawn } = require('child_process')
+import path from 'path'
+import { spawn } from 'child_process'
+import test from 'node:test'
+import assert from 'assert'
 
 function validateConsoleLog({ file }) {
-    const testAppFilePath = path.join(
-        process.cwd(),
-        '/src/io/_tests/utils/' + file
-    )
+    const testAppFilePath = path.join(process.cwd(), '/_tests/utils/' + file)
 
     return new Promise((res, rej) => {
         const testApp = spawn('node', [testAppFilePath])
@@ -18,10 +17,7 @@ function validateConsoleLog({ file }) {
 }
 
 function validateTerminalCommand({ file }) {
-    const testAppFilePath = path.join(
-        process.cwd(),
-        '/src/io/_tests/utils/' + file
-    )
+    const testAppFilePath = path.join(process.cwd(), '/_tests/utils/' + file)
 
     return new Promise((res, rej) => {
         const testApp = spawn('node', [testAppFilePath, 'deploy'])
@@ -34,10 +30,7 @@ function validateTerminalCommand({ file }) {
 }
 
 function validateTerminalCommandWithFlag({ file }) {
-    const testAppFilePath = path.join(
-        process.cwd(),
-        '/src/io/_tests/utils/' + file
-    )
+    const testAppFilePath = path.join(process.cwd(), '/_tests/utils/' + file)
 
     return new Promise((res, rej) => {
         const testApp = spawn('node', [
@@ -58,33 +51,33 @@ test('ui.printInfoMessage will log to the console', async () => {
     const text = await validateConsoleLog({
         file: 'runPrintInfoMessage.js'
     })
-    expect(text).toBe('\x1B[37m A Info Message\n')
+    assert.strictEqual(text, 'A Info Message\n')
 })
 
 test('ui.printSuccessMessage will log to the console', async () => {
     const text = await validateConsoleLog({
         file: 'runPrintSuccessMessage.js'
     })
-    expect(text).toBe('\x1B[32m A Success Message\n')
+    assert.strictEqual(text, '\x1B[32mA Success Message\x1B[37m\n')
 })
 
 test('ui.printErrorMessage will log to the console', async () => {
     const text = await validateConsoleLog({
         file: 'runPrintErrorMessage.js'
     })
-    expect(text).toBe('\x1B[31m A Error Message\n')
+    assert.strictEqual(text, '\x1B[31mA Error Message\x1B[37m\n')
 })
 
 test('io.terminal.makeCommand can be registered and executed', async () => {
     const text = await validateTerminalCommand({
         file: 'executeTerminalCommand.js'
     })
-    expect(text).toBe('\x1B[37m command executed\n')
+    assert.strictEqual(text, 'command executed\n')
 })
 
 test('io.terminal.makeCommand can be executed with command line flags', async () => {
     const text = await validateTerminalCommandWithFlag({
         file: 'executeTerminalCommandWithFlag.js'
     })
-    expect(text).toBe('\x1B[37m stage: prod\n')
+    assert.strictEqual(text, 'stage: prod\n')
 })
