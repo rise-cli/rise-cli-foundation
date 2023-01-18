@@ -1,9 +1,8 @@
 {
     "name": "rise-cli-foundation",
-    "version": "0.0.14",
+    "version": "0.0.15",
     "description": "",
-    "type": "module",
-    "main": "index.js",
+    "main": "index.mjs",
     "scripts": {
         "test": "node --test && echo \"✅ Tests Pass\"",
         "release": "npm run test && npm publish"

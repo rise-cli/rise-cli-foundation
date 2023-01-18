@@ -1,12 +1,6 @@
 import { program } from 'commander'
 import process from 'node:process'
 
-/** @typedef {import('./types.d').Flag} Flag */
-/** @typedef {import('./types.d').CommandConfig} CommandConfig */
-
-/**
- * @param {CommandConfig} config
- */
 export function addCommand(config) {
     const cm = program
         .command(config.command)
@@ -44,71 +38,38 @@ const RED_TEXT = ANSI_PREFIX + '31m'
 const DIM_TEXT = ANSI_PREFIX + '2m'
 const BRIGHT_TEXT = ANSI_PREFIX + '0m'
 
-/**
- * @param {string} text
- */
 export function print(text) {
     console.log(text)
 }
 
-/**
- * @param {string} text
- * @returns {string}
- */
 export function makeGreenText(text) {
     return `${GREEN_TEXT}${text}${WHITE_TEXT}`
 }
 
-/**
- * @param {string} text
- * @returns {string}
- */
 export function makeBlueText(text) {
     return `${BLUE_TEXT}${text}${WHITE_TEXT}`
 }
 
-/**
- * @param {string} text
- * @returns {string}
- */
 export function makeRedText(text) {
     return `${RED_TEXT}${text}${WHITE_TEXT}`
 }
 
-/**
- * @param {string} text
- * @returns {string}
- */
 export function makeDimText(text) {
     return `${DIM_TEXT}${text}${BRIGHT_TEXT}`
 }
 
-/**
- * @param {string} text
- * @param {number} length
- * @returns {string}
- */
 export function setTextWidth(text, length) {
     return text.padEnd(length, ' ')
 }
 
-/**
- * @param {string} text
- */
 export function printInfoMessage(text) {
     print(text)
 }
 
-/**
- * @param {string} text
- */
 export function printSuccessMessage(text) {
     print(makeGreenText(text))
 }
 
-/**
- * @param {string} text
- */
 export function printErrorMessage(text) {
     print(makeRedText(text))
 }
