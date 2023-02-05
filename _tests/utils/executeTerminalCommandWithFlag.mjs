@@ -1,4 +1,4 @@
-import { addCommand, runProgram, printInfoMessage } from '../../index.js'
+import { addCommand, runProgram } from '../../index.mjs'
 
 const flags = [
     {
@@ -12,7 +12,7 @@ addCommand({
     flags,
     action: async (flags) => {
         const stage = flags.stage
-        printInfoMessage('stage: ' + stage)
+        console.log('stage: ' + stage)
     }
 })
 

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import { spawn } from 'child_process'
 import test from 'node:test'
 import assert from 'assert'
@@ -49,35 +49,35 @@ function validateTerminalCommandWithFlag({ file }) {
 
 test('ui.printInfoMessage will log to the console', async () => {
     const text = await validateConsoleLog({
-        file: 'runPrintInfoMessage.js'
+        file: 'runPrintInfoMessage.mjs'
     })
     assert.strictEqual(text, 'A Info Message\n')
 })
 
 test('ui.printSuccessMessage will log to the console', async () => {
     const text = await validateConsoleLog({
-        file: 'runPrintSuccessMessage.js'
+        file: 'runPrintSuccessMessage.mjs'
     })
     assert.strictEqual(text, '\x1B[32mA Success Message\x1B[37m\n')
 })
 
 test('ui.printErrorMessage will log to the console', async () => {
     const text = await validateConsoleLog({
-        file: 'runPrintErrorMessage.js'
+        file: 'runPrintErrorMessage.mjs'
     })
     assert.strictEqual(text, '\x1B[31mA Error Message\x1B[37m\n')
 })
 
 test('io.terminal.makeCommand can be registered and executed', async () => {
     const text = await validateTerminalCommand({
-        file: 'executeTerminalCommand.js'
+        file: 'executeTerminalCommand.mjs'
     })
     assert.strictEqual(text, 'command executed\n')
 })
 
 test('io.terminal.makeCommand can be executed with command line flags', async () => {
     const text = await validateTerminalCommandWithFlag({
-        file: 'executeTerminalCommandWithFlag.js'
+        file: 'executeTerminalCommandWithFlag.mjs'
     })
     assert.strictEqual(text, 'stage: prod\n')
 })
