@@ -1,12 +1,5 @@
 # Rise CLI Foundation
 
-## Progress
-
--   ✅ tests
--   ✅ docs
--   ✅ examples
--   🔲 CICD
-
 ## Install
 
 ```
