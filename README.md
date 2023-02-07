@@ -1,11 +1,6 @@
 # Rise CLI Foundation
 
-## Progress
-
--   ✅ tests
--   ✅ docs
--   ✅ examples
--   🔲 CICD
+![GitHub CI status](https://github.com/rise-cli/rise-cli-foundation/actions/workflows/test.yml/badge.svg)
 
 ## Install
 
