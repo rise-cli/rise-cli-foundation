@@ -1,8 +1,8 @@
 # Rise CLI Foundation
 
-## Install
+[Github](https://github.com/rise-cli/rise-cli-foundation)
 
-```
+```bash
 npm i rise-cli-foundation
 ```
 
